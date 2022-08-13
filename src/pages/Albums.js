@@ -4,7 +4,7 @@ import AlbumList from "../components/Albums/AlbumList";
 
 const Albums = (props) => {
   return (
-    <div className="surface-0 mt-8 ml-8 mr-8">
+    <div className="surface-0 mt-4 ml-4 mr-4">
       <div className="font-medium text-3xl text-900 mb-3">
         Albumele dumneavoastră
       </div>

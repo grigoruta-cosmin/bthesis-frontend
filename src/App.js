@@ -15,6 +15,7 @@ import Layout from './components/Layout/Layout';
 import RegisterForm from './components/Auth/RegisterForm';
 import NotFound from './pages/NotFound';
 import NewAlbum from './pages/NewAlbum';
+import Images from './pages/Images';
 import AlbumItem from './components/Albums/AlbumItem';
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
               <Route path='/albums' element={ <Albums /> } />
               <Route path='/albums/new' element={ <NewAlbum />} />
               <Route path='/albums/:albumId' element={ <AlbumItem />} />
+              <Route path='/albums/:albumId/images' element={ <Images />} />
             </>
           )
         }
