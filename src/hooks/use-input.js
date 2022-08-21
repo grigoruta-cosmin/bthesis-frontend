@@ -1,10 +1,10 @@
 import { useReducer } from "react";
 
 
-const initialInputState = {
-  value: '',
-  isTouched: false
-}
+// const initialInputState = {
+//   value: '',
+//   isTouched: false
+// }
 
 const inputStateReducer = (state, action) => {
   if (action.type === 'INPUT') {
@@ -27,7 +27,10 @@ const inputStateReducer = (state, action) => {
   }
 }
 
-const useInput = (validateValue) => {
+const useInput = (validateValue, input_type = 'TEXT', initialInputState = {
+  value: '',
+  isTouched: false
+}) => {
   const [inputState, dispatch] = useReducer(inputStateReducer, initialInputState);
 
   const valueIsValid = validateValue(inputState.value)
@@ -35,7 +38,11 @@ const useInput = (validateValue) => {
   const hasError = !valueIsValid && inputState.isTouched
 
   const valueChangeHandler = (event) => {
-    dispatch({type: 'INPUT', value: event.target.value});
+    if (input_type === 'TEXT') {
+      dispatch({type: 'INPUT', value: event.target.value});
+    } else if (input_type === 'NON_TEXT') {
+      dispatch({type: 'INPUT', value: event.value})
+    }
   };
 
   const inputBlurHandler = (event) => {
@@ -48,6 +55,7 @@ const useInput = (validateValue) => {
 
   return {
     value: inputState.value,
+    touched: inputState.isTouched,
     isValid: valueIsValid,
     hasError,
     valueChangeHandler,

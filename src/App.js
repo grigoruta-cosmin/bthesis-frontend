@@ -17,6 +17,10 @@ import NotFound from './pages/NotFound';
 import NewAlbum from './pages/NewAlbum';
 import Images from './pages/Images';
 import AlbumItem from './components/Albums/AlbumItem';
+import Runs from './pages/Runs';
+import NewRun from './pages/NewRun';
+import Run from './pages/Run';
+import PredictionViewer from './pages/PredictionViewer';
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -33,6 +37,10 @@ function App() {
               <Route path='/albums/new' element={ <NewAlbum />} />
               <Route path='/albums/:albumId' element={ <AlbumItem />} />
               <Route path='/albums/:albumId/images' element={ <Images />} />
+              <Route path='/runs' element={ <Runs /> } />
+              <Route path='/runs/:runId' element={ <Run /> } />
+              <Route path='/runs/:runId/images' element={ <PredictionViewer /> } />
+              <Route path='/runs/new' element={ <NewRun /> } />
             </>
           )
         }

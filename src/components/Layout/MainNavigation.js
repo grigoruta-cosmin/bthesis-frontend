@@ -32,6 +32,22 @@ const MainNavigation = () => {
       ],
     },
     {
+      label: 'Detecții',
+      icon: PrimeIcons.BOLT,
+      items: [
+        {
+          label: 'Vizualizează detecțiile',
+          icon: PrimeIcons.EYE,
+          command: () => { navigate('/runs') }
+        },
+        {
+          label: 'Crează o detecție',
+          icon: PrimeIcons.PENCIL,
+          command: () => { navigate('/runs/new') }
+        }
+      ]
+    },
+    {
       label: 'Detectie Live',
       icon: PrimeIcons.VIDEO,
       command: () => {  },

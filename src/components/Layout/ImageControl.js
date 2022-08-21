@@ -7,34 +7,39 @@ const ImageControl = (props) => {
     <>
       <div className="card">
         <div className="flex justify-content-center flex-wrap card-container">
+          <Button
+            className="mr-2"
+            onClick={props.onExit}
+            icon="pi pi-times"
+          />
           <div className="flex align-items-center justify-content-center w-14rem">
             <span className="p-buttonset">
               <Button
                 onClick={props.onBackwardClick}
                 icon="pi pi-angle-double-left"
-                disabled={props.currentPhotoIndex === 0}
+                disabled={props.currentImageIndex === 0}
               />
               <Button
                 onClick={props.onPrevClick}
                 icon="pi pi-angle-left"
-                disabled={props.currentPhotoIndex === 0}
+                disabled={props.currentImageIndex === 0}
               />
               <Button
                 onClick={props.onNextClick}
                 icon="pi pi-angle-right"
-                disabled={props.currentPhotoIndex === props.max}
+                disabled={props.currentImageIndex === props.max}
               />
               <Button
                 onClick={props.onForwardClick}
                 icon="pi pi-angle-double-right"
-                disabled={props.currentPhotoIndex === props.max}
+                disabled={props.currentImageIndex === props.max}
               />
             </span>
           </div>
           <div className="flex align-items-center justify-content-center w-16rem">
             <Slider
               style={{ width: 14 + "rem" }}
-              value={props.currentPhotoIndex}
+              value={props.currentImageIndex}
               min={0}
               max={props.max}
               onChange={props.onSliderChange}
@@ -46,7 +51,7 @@ const ImageControl = (props) => {
               style={{ width: 4 + "rem" }}
               min={0}
               max={props.max}
-              value={props.currentPhotoIndex}
+              value={props.currentImageIndex}
               onChange={props.onInputChange}
             />
           </div>

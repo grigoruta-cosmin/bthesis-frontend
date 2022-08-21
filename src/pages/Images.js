@@ -9,44 +9,13 @@ const Images = () => {
   const { state } = useLocation();
   const params = useParams();
   const authCtx = useContext(AuthContext);
-  const [photos, setPhotos] = useState([]);
+  // const [photos, setPhotos] = useState([]);
   const [photoIndex, setPhotoIndex] = useState(-1);
   console.log("state use location", state);
-  const { token } = authCtx;
-  const { id } = state;
-  const { albumId } = params;
+  const photos = state.photos;
+  // const { albumId } = params;
   useEffect(() => {
-    fetch(`/album/${albumId}`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          console.log("aici");
-        }
-      })
-      .then((data) => {
-        console.log("asta se intaorce", data);
-        const processedImages = data.photos.map((el) => {
-          return {
-            id: el.id,
-            fileName: el.file_name,
-            fileExtension: el.file_extension,
-            width: el.width,
-            height: el.height,
-          };
-        });
-        setPhotos(processedImages);
-        console.log(photos);
-        const currentPhotoIndex = processedImages.findIndex(
-          (el) => (el.id = id)
-        );
-        setPhotoIndex(currentPhotoIndex);
-      });
+    setPhotoIndex(0)
   }, []);
 
   const sliderChangeHandler = (event) => {

@@ -9,6 +9,7 @@ import { Toast } from 'primereact/toast';
 import AuthContext from '../../store/auth-context';
 import { useNavigate } from "react-router-dom";
 
+
 const isNotEmpty = (value) => value.trim() !== '';
 
 const AuthForm = (props) => {

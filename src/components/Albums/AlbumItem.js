@@ -5,10 +5,14 @@ import AuthContext from "../../store/auth-context";
 import { useNavigate, useParams } from "react-router-dom";
 import { Toast } from "primereact/toast";
 import { Button } from "primereact/button";
+import ImageList from "../Images/ImageList";
+import ImageViewer from "../Images/ImageViewer";
 
 const AlbumItem = () => {
   const toastRef = useRef();
-  const [photos, setPhotos] = useState([])
+  const [images, setImages] = useState([]);
+  const [listView, setListView] = useState(true);
+  const [clickedImageId, setClickedImageId] = useState(-1);
   const authCtx = useContext(AuthContext)
   const params = useParams();
   const navigate = useNavigate();
@@ -39,13 +43,18 @@ const AlbumItem = () => {
             height: el.height
           };
         });
-        setPhotos(processedImages);
+        setImages(processedImages);
     });
   }, [authCtx.token, params.albumId])
 
   const viewClickHandler = (rowData) => {
     console.log(rowData)
-    navigate(`/albums/${params.albumId}/images`, { state: rowData})
+    setListView(false);
+    setClickedImageId(rowData.id);
+    // navigate(`/albums/${params.albumId}/images`, { state: {
+    //   rowData: rowData,
+    //   photos: photos
+    // } })
   };
 
   const actions = (rowData) => {
@@ -62,14 +71,27 @@ const AlbumItem = () => {
   return (
     <div className="surface-0 mt-4 ml-4 mr-4">
       <div className="card">
-        <Toast ref={toastRef} />
-        <DataTable value={photos} responsiveLayout="scroll">
-          <Column field="fileName" header="Numele Pozei" sortable></Column>
-          <Column field="fileExtension" header="Extensia"></Column>
-          <Column field="width" header="Lățime"></Column>
-          <Column field="height" header="Înălțime"></Column>
-          <Column body={actions} ></Column>
-        </DataTable>
+        {
+          listView && (
+            <ImageList 
+              toastRef={toastRef}
+              images={images}
+              actions={actions}
+            />
+          )
+        }
+        {
+          !listView && (
+            <>
+              {/* <Button label="x" onClick={() => setListView(true)}></Button> */}
+              <ImageViewer
+                images={images}
+                onExit={() => setListView(true)}
+                clickedImageId={clickedImageId} 
+              />
+            </>
+          )
+        }
       </div>
     </div>
   );
