@@ -1,0 +1,5 @@
+.bboxSelector {
+  border: 2px dotted rgb(127, 255, 127);
+  border-width: 2px;
+  position: absolute;
+}

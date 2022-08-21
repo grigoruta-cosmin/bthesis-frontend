@@ -1,0 +1,9 @@
+.bboxAnnotator {
+  cursor: crosshair;
+}
+
+.imageFrame {
+  position: relative;
+  background-size: 100%;
+}
+
