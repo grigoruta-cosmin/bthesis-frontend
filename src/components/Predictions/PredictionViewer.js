@@ -55,6 +55,8 @@ const PredictionViewer = (props) => {
     }
   };
 
+  
+
   return (
     <>
       <div className="card">

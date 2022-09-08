@@ -6,7 +6,7 @@ const PredictionList = (props) => {
   const authCtx = useContext(AuthContext);
 
   useEffect(() => {
-    fetch('/prediction?' + new URLSearchParams({
+    fetch('/annotation?' + new URLSearchParams({
       run_id: props.runId,
       image_id: props.imageId      
     }),{
@@ -31,7 +31,6 @@ const PredictionList = (props) => {
           width: pred.width,
           height: pred.height,
           label: pred.label,
-          confidenceScore: pred.confidenceScore
         };
       }))
     })

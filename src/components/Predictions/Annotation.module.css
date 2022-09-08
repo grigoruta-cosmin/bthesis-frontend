@@ -1,0 +1,11 @@
+#ew {
+  cursor: ew-resize;
+}
+
+#ns {
+  cursor: ns-resize;
+}
+
+.annotation {
+  border-style: 2px solid;
+}

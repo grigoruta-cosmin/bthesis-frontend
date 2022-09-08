@@ -48,11 +48,6 @@ const MainNavigation = () => {
       ]
     },
     {
-      label: 'Detectie Live',
-      icon: PrimeIcons.VIDEO,
-      command: () => {  },
-    }, 
-    {
       label: 'Iesi din cont',
       icon: PrimeIcons.SIGN_OUT,
       command: () => { 

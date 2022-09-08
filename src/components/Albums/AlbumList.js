@@ -34,7 +34,6 @@ const AlbumList = () => {
         return {
           id: el.id,
           name: el.name,
-          numberOfPhotos: 1000,
           creationDatetime: `${time.toLocaleDateString('ro-RO', {year: 'numeric', month: 'long', day: 'numeric'})}, ${time.toLocaleTimeString('ro-RO')}`
         }
       })
@@ -94,7 +93,6 @@ const AlbumList = () => {
         <Toast ref={toastRef} />
         <DataTable value={albums} responsiveLayout="scroll">
           <Column field="name" header="Numele" sortable></Column>
-          <Column field="numberOfPhotos" header="Numărul de Poze" sortable></Column>
           <Column field="creationDatetime" header="Data creării" sortable></Column>
           <Column body={actions} ></Column>
         </DataTable>

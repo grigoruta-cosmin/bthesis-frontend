@@ -3,6 +3,11 @@ import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 
 const ImageControl = (props) => {
+
+  const keyDownHandler = (e) => {
+    console.log(e);
+  }
+
   return (
     <>
       <div className="card">

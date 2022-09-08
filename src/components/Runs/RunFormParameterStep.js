@@ -92,6 +92,14 @@ const RunFormParameterStep = (props) => {
       modelType: {
         value: modelTypeValue,
         isTouched: modelTypeIsTouched
+      },
+      confidenceThreshold: {
+        value: confidenceThresholdValue,
+        isTouched: confidenceThresholdIsTouched
+      },
+      maximumDeterminations: {
+        value: maximumDeterminationsValue,
+        isTouched: maximumDeterminationsIsTouched
       }
     });
     props.onNextStep();

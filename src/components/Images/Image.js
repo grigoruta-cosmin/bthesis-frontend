@@ -5,7 +5,7 @@ const Image = (props) => {
   const [img, setImg] = useState();
   const authCtx = useContext(AuthContext)
   useEffect(() => {
-    fetch(`/image/${props.imageId}`, {
+    fetch(`/file/${props.imageId}`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${authCtx.token}`

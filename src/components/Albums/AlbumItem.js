@@ -34,7 +34,7 @@ const AlbumItem = () => {
         });
       }
     }).then((data) => {
-        const processedImages = data.photos.map((el) => {
+        const processedImages = data.images.map((el) => {
           return {
             id: el.id,
             fileName: el.file_name,
