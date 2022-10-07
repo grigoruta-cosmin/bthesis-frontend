@@ -91,7 +91,7 @@ const AlbumList = () => {
     <>
       <div className="card">
         <Toast ref={toastRef} />
-        <DataTable value={albums} responsiveLayout="scroll">
+        <DataTable value={albums} responsiveLayout="scroll" emptyMessage="Nu aveți niciun album deocamdată.">
           <Column field="name" header="Numele" sortable></Column>
           <Column field="creationDatetime" header="Data creării" sortable></Column>
           <Column body={actions} ></Column>

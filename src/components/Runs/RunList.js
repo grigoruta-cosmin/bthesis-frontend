@@ -178,7 +178,7 @@ const RunList = () => {
               {exportNameHasError && <small id='username-help' className='p-error block' >Numele arhivei este obligatoriu</small>}
             </div>
         </Dialog>
-        <DataTable value={runs}>
+        <DataTable value={runs} emptyMessage="Nu aveți nicio detecție creată.">
           <Column field="name" header="Numele" sortable></Column>
           <Column field="type" header="Modelul" ></Column>
           <Column field="confidenceThreshold" header="Pragul de Încredere"></Column>

@@ -9,7 +9,8 @@ import { Button } from "primereact/button";
 import { Toast } from "primereact/toast";
 import { useNavigate } from "react-router-dom";
 
-const isNotEmpty = (value) => value.trim() !== "";
+const isNotEmpty = (value) => value.trim().length >= 3;
+const passwordCheck = (value) => value.trim().length >= 8;
 
 const RegisterForm = () => {
   const {
@@ -43,7 +44,7 @@ const RegisterForm = () => {
     valueChangeHandler: passwordChangeHandler,
     inputBlurHandler: passwordBlurHandler,
     reset: resetPassword,
-  } = useInput(isNotEmpty);
+  } = useInput(passwordCheck);
   const toastRef = useRef();
   const authCtx = useContext(AuthContext);
   const navigate = useNavigate();

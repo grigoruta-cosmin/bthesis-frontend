@@ -41,8 +41,8 @@ const FileUploadDemo = () => {
   const onUpload = () => {
     toast.current.show({
       severity: "info",
-      summary: "Success",
-      detail: "File Uploaded",
+      summary: "Succes",
+      detail: "Imaginile au fost încărcate",
     });
   };
 
@@ -64,8 +64,8 @@ const FileUploadDemo = () => {
     setTotalSize(_totalSize);
     toast.current.show({
       severity: "info",
-      summary: "Success",
-      detail: "File Uploaded",
+      summary: "Sucess",
+      detail: "Imaginile au fost încărcate",
     });
   };
 
@@ -218,7 +218,7 @@ const FileUploadDemo = () => {
           url="/upload"
           multiple
           accept="image/*"
-          maxFileSize={1000000}
+          maxFileSize={2000000}
           onUpload={onTemplateUpload}
           onSelect={onTemplateSelect}
           onError={onTemplateError}
